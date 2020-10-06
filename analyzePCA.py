@@ -29,8 +29,8 @@ for z in range(0, 28):
     projMat = eigenVectors[:,z:2+z]
     xP = x.dot(projMat)
 
-    eVNameX = df.columns[idx[z]+1]
-    eVNameY = df.columns[idx[z+1]+1]
+    #eVNameX = df.columns[idx[z]+1]
+    #eVNameY = df.columns[idx[z+1]+1]
 
     plt.figure()
     projDf = pd.DataFrame(data = xP, columns = ['eig1', 'eig2'])
@@ -44,7 +44,7 @@ for z in range(0, 28):
         plt.scatter(subset['eig1'], subset['eig2'], \
             color = colors[i], marker = markers[i], label = subset['diagnosis'].iloc[0])
     plt.title('PCA Scatter Plot: Eigenvector')
-    plt.xlabel(str(z+1) + 'th Eigenvector: '+ eVNameX)
-    plt.ylabel(str(z+2) + 'th Eigenvector: '+ eVNameY)
+    plt.xlabel(str(z+1) + 'th Eigenvector ')
+    plt.ylabel(str(z+2) + 'th Eigenvector: ')
     plt.legend()
-    plt.savefig('PCAplots/PCAPlot-'+ eVNameX + ' vs. ' + eVNameY +'.png')
+    plt.savefig('PCAplots/'+str(z+1) + ' vs. ' + str(z+2) + '.png')
